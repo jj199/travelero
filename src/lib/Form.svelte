@@ -99,6 +99,30 @@
 				{/each}
 			</div>
 		</div>
+		<div class="mt-8">
+			<div class="mb-4 font-semibold text-lg">
+				Where do you want to go?
+			</div>
+			<textarea
+				bind:value={locationDescriptors}
+				class="bg-white/40 border border-white/0 p-2 rounded-md placeholder:text-slate-800 text-slate-900 w-full h-20 font-medium"
+				placeholder="Choose a location. It can be a city, state, country, region or continent."
+			/>
+			<button
+				on:click
+				class={`${
+					loading
+						? 'bg-pink-400/50'
+						: 'bg-pink-600 hover:bg-gradient-to-r from-pink-700 via-pink-600 to-pink-700 '
+				} mt-4 w-full h-10 text-white font-bold p-3 rounded-full flex items-center justify-center`}
+			>
+				{#if loading}
+					<LoadingIndicator />
+				{:else}
+					<p>Curate My List</p>
+				{/if}
+			</button>
+		</div>
 		<div>
 			<div class="mb-4 font-semibold text-lg">
 				Select all categories that you want the show or movie to include.
