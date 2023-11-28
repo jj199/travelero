@@ -16,6 +16,11 @@
 	/**
 	 * @type Boolean
 	 */
+
+	 export let locationDescriptors;
+	/**
+	 * @type Boolean
+	 */
 	export let loading;
 
 	const categoryTypes = [
