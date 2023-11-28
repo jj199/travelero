@@ -81,7 +81,6 @@
 		<div class="mb-8">
 			<div class="mb-4 font-semibold text-lg">Where do you want to go?</div>
 			<div class="flex items-center">
-				{#each locations as type (type.value)}
 					<textarea
 				bind:value={location}
 				class="bg-white/40 border border-white/0 p-2 rounded-md placeholder:text-slate-800 text-slate-900 w-full h-20 font-medium"
