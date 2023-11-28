@@ -130,7 +130,7 @@
 			</div>
 		</div>
 
-		<div class="mb-8">
+		<div class="mb-9">
 			<div class="mb-4 font-semibold text-lg">Who are you travelling with?</div>
 			<div class="flex items-center">
 				{#each travelWith as type (type.value)}
