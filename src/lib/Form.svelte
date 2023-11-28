@@ -8,6 +8,10 @@
 	/**
 	 * @type Array<string>
 	 */
+	 export let traveWith;
+	/**
+	 * @type Array<string>
+	 */
 	export let selectedCategories;
 	/**
 	 * @type string
@@ -87,10 +91,27 @@
 		{ value: '50 - 59', title: '50 - 59' },
 		{ value: '60+', title: '60+' }
 	];
+
+	let travelWith = [
+		{ value: 'Solo', title: 'Solo' },
+		{ value: 'Friends', title: 'Friends' },
+		{ value: 'Couple', title: 'Couple' },
+		{ value: 'Family', title: 'Family' }
+	];
 </script>
 
 <div class="pt-6 md:pt-10 text-slate-200">
 	<div>
+		<div class="mt-8">
+			<div class="mb-4 font-semibold text-lg">
+				Where do you want to go?
+			</div>
+			<textarea
+				bind:value={locationDescriptors}
+				class="bg-white/40 border border-white/0 p-2 rounded-md placeholder:text-slate-800 text-slate-900 w-full h-20 font-medium"
+				placeholder="Choose a location. It can be a city, state, country, region or continent."
+			/>
+		</div>
 		<div class="mb-8">
 			<div class="mb-4 font-semibold text-lg">What is your age group?</div>
 			<div class="flex items-center">
@@ -108,16 +129,25 @@
 				{/each}
 			</div>
 		</div>
-		<div class="mt-8">
-			<div class="mb-4 font-semibold text-lg">
-				Where do you want to go?
+
+		<div class="mb-8">
+			<div class="mb-4 font-semibold text-lg">Who are you travelling with?</div>
+			<div class="flex items-center">
+				{#each travelWith as type (type.value)}
+					<button
+						on:click={() => {
+							travelWith = type.value;
+						}}
+						class={`${
+							travelWith === type.value ? 'bg-pink-600/40' : ''
+						} text-slate-200 font-bold mr-2 text-sm mt-2 py-2 px-4 rounded-full border border-pink-600`}
+					>
+						{type.title}
+					</button>
+				{/each}
 			</div>
-			<textarea
-				bind:value={locationDescriptors}
-				class="bg-white/40 border border-white/0 p-2 rounded-md placeholder:text-slate-800 text-slate-900 w-full h-20 font-medium"
-				placeholder="Choose a location. It can be a city, state, country, region or continent."
-			/>
 		</div>
+		
 		<div>
 			<div class="mb-4 font-semibold text-lg">
 				Select all categories that you want the show or movie to include.
