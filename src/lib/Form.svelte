@@ -4,7 +4,7 @@
 	/**
 	 * @type string
 	 */
-	export let location;
+	export let cinemaType;
 	/**
 	 * @type Array<string>
 	 */
@@ -73,19 +73,29 @@
 		'Zombie'
 	];
 
-
+	let cinemaTypes = [
+		{ value: 'tv show', title: 'TV Show' },
+		{ value: 'movie', title: 'Movie' },
+		{ value: 'tv show or movie', title: 'No Preference' }
+	];
 </script>
 
 <div class="pt-6 md:pt-10 text-slate-200">
 	<div>
 		<div class="mb-8">
-			<div class="mb-4 font-semibold text-lg">Where do you want to go?</div>
+			<div class="mb-4 font-semibold text-lg">What kind of cinema are you searching for?</div>
 			<div class="flex items-center">
-					<textarea
-				bind:value={location}
-				class="bg-white/40 border border-white/0 p-2 rounded-md placeholder:text-slate-800 text-slate-900 w-full h-20 font-medium"
-				placeholder="Ex. Must have at least 2 seasons and be on Netflix or Hulu."
-			/>
+				{#each cinemaTypes as type (type.value)}
+					<button
+						on:click={() => {
+							cinemaType = type.value;
+						}}
+						class={`${
+							cinemaType === type.value ? 'bg-pink-600/40' : ''
+						} text-slate-200 font-bold mr-2 text-sm mt-2 py-2 px-4 rounded-full border border-pink-600`}
+					>
+						{type.title}
+					</button>
 				{/each}
 			</div>
 		</div>
