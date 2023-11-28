@@ -133,16 +133,16 @@
 		<div class="mb-9">
 			<div class="mb-4 font-semibold text-lg">Who are you travelling with?</div>
 			<div class="flex items-center">
-				{#each travelWith as type (type.value)}
+				{#each travelWith as travelt (travelt.value)}
 					<button
 						on:click={() => {
-							travelWith = type.value;
+							travelWith = travelt.value;
 						}}
 						class={`${
-							travelWith === type.value ? 'bg-pink-600/40' : ''
+							travelWith === travelt.value ? 'bg-pink-600/40' : ''
 						} text-slate-200 font-bold mr-2 text-sm mt-2 py-2 px-4 rounded-full border border-pink-600`}
 					>
-						{type.title}
+						{travelt.title}
 					</button>
 				{/each}
 			</div>
